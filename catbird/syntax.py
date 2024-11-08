@@ -493,6 +493,10 @@ def get_params_list(json_obj,syntax_path):
             else:
                 default = _convert_to_type(attr_type, param_info['default'])
 
+        cpp_type = None
+        if 'cpp_type' in param_info.keys():
+            cpp_type = param_info['cpp_type']
+
         # Create and add a MOOSE parameter
         moose_param=MooseParam(param_name,
                                attr_type,
@@ -500,6 +504,7 @@ def get_params_list(json_obj,syntax_path):
                                default=default,
                                allowed_vals=allowed_values,
                                description=param_info.get('description'),
+                               type=cpp_type
         )
 
         moose_param_list.append(moose_param)

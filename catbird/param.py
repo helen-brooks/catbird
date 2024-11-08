@@ -2,13 +2,14 @@ class MooseParam():
     """
     Class to contain all information about a MOOSE parameter
     """
-    def __init__(self,attr_name, attr_type, is_array, default=None, allowed_vals=None, description=None):
+    def __init__(self,attr_name, attr_type, is_array, default=None, allowed_vals=None, description=None, type=None):
 
         assert attr_type is not type(None)
 
         self.attr_type=attr_type
         self.allowed_vals=allowed_vals
         self.is_array=is_array
+        self.cpp_type = type
 
         # Set name
         if not isinstance(attr_name, str):
@@ -31,6 +32,7 @@ class MooseParam():
         doc_str += attr_name+' : '
         doc_str += f'{attr_type.__name__}\n'
         if description is not None and description != "":
+            self.description = description
             doc_str += "  "
             doc_str += description
             doc_str += "\n"
