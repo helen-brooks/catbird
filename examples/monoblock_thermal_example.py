@@ -22,7 +22,7 @@ def main():
 
     # Create a boiler plate MOOSE model from a template
     model=MonoblockModel(factory)
-    
+
     # Write out our input file
     input_name="monoblock_thermal.i"
     model.write(input_name)

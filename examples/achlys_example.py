@@ -23,7 +23,7 @@ def main():
 
     # Create a boiler plate MOOSE model from a template
     model=AchlysModel(factory)
-    
+
     # Write out our input file
     input_name="achlys.i"
     model.write(input_name)
@@ -31,4 +31,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
