@@ -64,7 +64,6 @@ class MonoblockModel(MooseModel):
         self.add_syntax("Mesh", action="SetupMeshAction")
         self.add_syntax("Variables")
         self.add_syntax("Kernels")
-        #self.add_syntax("Functions")
         self.add_syntax("Materials")
         self.add_syntax("BCs")
         self.add_syntax("Preconditioning")
@@ -211,68 +210,6 @@ class MonoblockModel(MooseModel):
 
         # Add kernels
         self.add_kernel("heat_conduction",kernel_type="HeatConduction", variable=var_name)
-
-        # Not needed for thermal problem
-        # # Add functions
-        # self.add_function("cucrzr_thermal_expansion",function_type="PiecewiseLinear",
-        #                    xy_data=[ 20, 1.67e-05,
-        #                              50, 1.7e-05,
-        #                              100, 1.73e-05,
-        #                              150, 1.75e-05,
-        #                              200, 1.77e-05,
-        #                              250, 1.78e-05,
-        #                              300, 1.8e-05,
-        #                              350, 1.8e-05,
-        #                              400, 1.81e-05,
-        #                              450, 1.82e-05,
-        #                              500, 1.84e-05,
-        #                              550, 1.85e-05,
-        #                              600, 1.86e-05 ] )
-
-        # self.add_function("copper_thermal_expansion",function_type="PiecewiseLinear",
-        #                    xy_data=[20, 1.67e-05,
-        #                             50, 1.7e-05,
-        #                             100, 1.72e-05,
-        #                             150, 1.75e-05,
-        #                             200, 1.77e-05,
-        #                             250, 1.78e-05,
-        #                             300, 1.8e-05,
-        #                             350, 1.81e-05,
-        #                             400, 1.82e-05,
-        #                             450, 1.84e-05,
-        #                             500, 1.85e-05,
-        #                             550, 1.87e-05,
-        #                             600, 1.88e-05,
-        #                             650, 1.9e-05,
-        #                             700, 1.91e-05,
-        #                             750, 1.93e-05,
-        #                             800, 1.96e-05,
-        #                             850, 1.98e-05,
-        #                             900, 2.01e-05])
-
-        # self.add_function("tungsten_thermal_expansion",function_type="PiecewiseLinear",
-        #                    xy_data=[20,   4.5e-06,
-        #                             100,  4.5e-06,
-        #                             200,  4.53e-06,
-        #                             300,  4.58e-06,
-        #                             400,  4.63e-06,
-        #                             500,  4.68e-06,
-        #                             600,  4.72e-06,
-        #                             700,  4.76e-06,
-        #                             800,  4.81e-06,
-        #                             900,  4.85e-06,
-        #                             1000, 4.89e-06,
-        #                             1200, 4.98e-06,
-        #                             1400, 5.08e-06,
-        #                             1600, 5.18e-06,
-        #                             1800, 5.3e-06,
-        #                             2000, 5.43e-06,
-        #                             2200, 5.57e-06,
-        #                             2400, 5.74e-06,
-        #                             2600, 5.93e-06,
-        #                             2800, 6.15e-06,
-        #                             3000, 6.4e-06,
-        #                             3200, 6.67e-06])
 
         # Add materials
         # Thermal conductivities

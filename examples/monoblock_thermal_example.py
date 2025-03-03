@@ -4,15 +4,8 @@ import sys
 from models.monoblock import *
 
 def main():
-    # Get path to MOOSE
-    moose_path=os.environ['MOOSE_DIR']
-
-    # Path to executable and inputs
-    # Need heat_transfer + reactor so use combined
-    module_name="combined"
-    app_name=module_name+"-opt"
-    app_path=os.path.join(moose_path,"modules",module_name)
-    app_exe=os.path.join(app_path,app_name)
+    # Path to executable
+    app_exe="../app/dummy-opt"
 
     # Create a factory of available objects from our MOOSE executable
     factory=MonoblockFactory(app_exe)
@@ -26,6 +19,15 @@ def main():
     # Write out our input file
     input_name="monoblock_thermal.i"
     model.write(input_name)
+
+    # Run
+    args=[app_exe,'-i',input_name]
+    moose_process=subprocess.Popen(args)
+    stream_data=moose_process.communicate()[0]
+    retcode=moose_process.returncode
+
+    # Return moose return code
+    sys.exit(retcode)
 
 
 if __name__ == "__main__":
