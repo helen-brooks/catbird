@@ -1,5 +1,3 @@
-![CI](https://github.com/pshriwise/catbird/actions/workflows/ci.yml/badge.svg)
-
 Catbird
 -------
 
@@ -115,10 +113,21 @@ their default value are suppressed when writing to file. To see all attributes, 
 >>> model.write("catbird_input_full.i", print_default=True)
 ```
 
-Example
--------
-A fully worked heat conduction example may be found in: `catbird/examples/thermal.py`. Run with
+Examples
+--------
+Fully worked examples may be found in `catbird/examples`. They should be run from this directory.
+1. Minimal heat conduction example. Run with:
 ```bash
-$ python examples/thermal.py
+$ python thermal_example.py
+```
+
+2. Divertor monoblock thermal example. Run with:
+```bash
+$ python monoblock_thermal_example.py
+```
+
+3. Simple breeder pin tritium diffusion example. Run with:
+```bash
+$ python simple_breeder_example.py
 ```
 
