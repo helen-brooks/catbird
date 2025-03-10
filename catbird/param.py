@@ -1,6 +1,29 @@
 class MooseParam():
     """
     Class to contain all information about a MOOSE parameter
+
+    Attributes:
+
+      allowed_vals:
+        If set, list of allowed values for this parameter.
+      attr_type:
+        Type of this parameter.
+      controllable (bool)  :
+        Indicates if this parameter may be controlled by a MOOSE Control object.
+      default:
+        Default value for this parameter.
+      description (str):
+        Short description for this parameter.
+      doc (str):
+        Documentation for this parameter.
+      is_array (bool):
+        Indicates if this parameter is iterable.
+      name:
+        Name of this parameter.
+      required
+        Whether it is mandatory to set this parameter in the owning class.
+      val
+        Current value of this parameter.
     """
     def __init__(self,attr_name, attr_type, is_array, default=None, allowed_vals=None, required=False, controllable=False, description=None):
 
@@ -28,6 +51,8 @@ class MooseParam():
 
         self.required=required
         self.controllable=controllable
+
+        self.description=description
 
         # Set docstring
         doc_str = '\n'
