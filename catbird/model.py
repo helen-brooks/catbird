@@ -12,7 +12,7 @@ class MooseModel():
         self.moose_objects=[]
 
         # Add attributes to this model with default assignments
-        self.load_default_syntax()
+        # self.load_default_syntax()
 
     # Envisage this being overridden downstream.
     def load_default_syntax(self):
@@ -27,6 +27,7 @@ class MooseModel():
         self.add_syntax("Materials")
         self.add_syntax("BCs")
         self.add_syntax("Outputs")
+        self.add_syntax("ICs")
 
 
     def add_syntax(self,syntax_name,**kwargs_in):

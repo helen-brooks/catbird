@@ -493,13 +493,23 @@ def get_params_list(json_obj,syntax_path):
             else:
                 default = _convert_to_type(attr_type, param_info['default'])
 
+        is_required=False
+        if 'required' in param_info.keys():
+            is_required=param_info['required']
+
+        cpp_type = None
+        if 'cpp_type' in param_info.keys():
+            cpp_type = param_info['cpp_type']
+
         # Create and add a MOOSE parameter
         moose_param=MooseParam(param_name,
                                attr_type,
                                is_array,
                                default=default,
                                allowed_vals=allowed_values,
+                               required=is_required,
                                description=param_info.get('description'),
+                               cpp_type=cpp_type
         )
 
         moose_param_list.append(moose_param)
